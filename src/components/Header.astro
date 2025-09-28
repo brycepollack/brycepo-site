@@ -1,0 +1,90 @@
+<header class="header">
+  <div class="header-container">
+    <div class="header-container-left">
+      <a href="/" class="name-link"> brycepo.com </a>
+    </div>
+
+    <div class="header-container-right">
+      <nav class="nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/projects" class="nav-link">Projects</a>
+
+        <button id="theme-toggle" class="theme-toggle">
+          <svg class="sun icon" viewBox="0 0 24 24" fill="currentColor">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-sun-icon lucide-sun"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+          </svg>
+
+          <svg class="moon icon" viewBox="0 0 24 24" fill="currentColor">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-moon-icon lucide-moon"
+            >
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
+          </svg>
+        </button>
+      </nav>
+      <button class="nav-menu" id="nav-menu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  import { initThemeToggle } from '../scripts/theme-toggle';
+  import { highlightCurrentNav } from '../scripts/nav-highlight';
+
+  initThemeToggle();
+  highlightCurrentNav();
+
+  const menu = document.getElementById('nav-menu');
+  const nav = document.querySelector('.nav');
+
+  menu?.addEventListener('click', () => {
+    nav?.classList.toggle('open');
+  });
+</script>

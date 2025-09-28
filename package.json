@@ -1,0 +1,27 @@
+{
+  "name": "astro-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/rss": "^4.0.12",
+    "astro": "^5.5.5",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-spotify-embed": "^2.0.4",
+    "sharp": "^0.34.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.11",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.2"
+  }
+}

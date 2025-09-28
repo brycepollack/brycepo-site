@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+let posts: CollectionEntry<'blog'>[] = await getCollection('blog');
+
+posts = posts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => {
+    const dateA = new Date(a.data.pubDate).getTime();
+    const dateB = new Date(b.data.pubDate).getTime();
+    return dateB - dateA;
+  });
+---
+
+<Layout title="Blog | Bryce Pollack">
+  <h1>Blog</h1>
+  <div class="blog-list">
+    {
+      posts.map(post => {
+        const cleanSlug = post.slug.replace(/^\d+[\.\-_]?/, '');
+
+        return (
+          <BlogCard
+            title={post.data.title}
+            slug={cleanSlug}
+            date={post.data.pubDate}
+            description={post.body.substring(0, 150) + '...'}
+          />
+        );
+      })
+    }
+  </div>
+</Layout>

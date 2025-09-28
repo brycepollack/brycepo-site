@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  date: string;
+  description: string;
+}
+
+const { title, slug, date, description } = Astro.props;
+---
+
+<a href={`/blog/${slug}/`} class="blog-card">
+  <h2 class="blog-card-title">{title}</h2>
+  <p class="blog-card-date">Published on {date}</p>
+  <p>{description}</p>
+</a>
