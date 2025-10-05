@@ -9,10 +9,9 @@
 
   /* Palette */
   --palette-navy: #001117;
-  --palette-offwhite: #f2f0ef;
   --palette-abyss: #00090c;
-  --palette-cloud: #eff1f5;
-  --palette-plum: #4c4f69;
+  --palette-offwhite: #f2f0ef;
+  --palette-gray: #ece9e8;
   --palette-teal: #14b8a6;
 
   /* Default theme (dark) */
@@ -31,9 +30,9 @@
 }
 
 [data-theme='light'] {
-  --theme-color-base: var(--palette-cloud);
-  --theme-color-header: var(--palette-offwhite);
-  --theme-color-text: var(--palette-plum);
+  --theme-color-base: var(--palette-offwhite);
+  --theme-color-header: var(--palette-gray);
+  --theme-color-text: var(--palette-navy);
   --theme-color-link: var(--palette-teal);
 }
 
@@ -252,6 +251,7 @@ main {
   flex-shrink: 0;
   border-radius: 50%;
   transition: transform 0.2s ease-in-out;
+  background: var(--theme-color-header);
 }
 
 .profile-image-container:hover {
@@ -394,4 +394,24 @@ main {
     min-width: auto;
     width: 100%;
   }
+}
+
+/* ================================
+   ANIMATIONS
+================================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
 }

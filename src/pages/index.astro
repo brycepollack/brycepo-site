@@ -11,17 +11,17 @@ const { Content } = await homeContent.render();
 ---
 
 <Layout title="Bryce Pollack">
-  <div class="profile-container">
+  <div class="profile-container fade-up">
     <div class="profile-image-container">
       <img src={profileImage.src} alt="Profile photo of Bryce Pollack" class="profile-image" />
     </div>
   </div>
 
-  <article class="prose">
+  <article class="prose fade-up" style="animation-delay: 0.2s">
     <Content />
   </article>
 
-  <div class="social-links">
+  <div class="social-links fade-up" style="animation-delay: 0.4s">
     <a
       href="https://linkedin.com/in/brycepollack"
       target="_blank"

@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Analytics from '../components/Analytics.astro';
 import '../styles/global.css';
 
 const { title = 'Bryce Pollack' } = Astro.props;
@@ -17,6 +18,7 @@ const { title = 'Bryce Pollack' } = Astro.props;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <title set:html={title} />
+    <Analytics />
   </head>
   <body>
     <div class="layout">
