@@ -7,32 +7,29 @@
     'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
 
-  /* Palette */
-  --palette-navy: #001117;
-  --palette-abyss: #00090c;
-  --palette-offwhite: #f2f0ef;
-  --palette-gray: #ece9e8;
+  --palette-dark: #0d0f12;
+  --palette-offwhite: #e3e6e8;
+
+  --palette-light: #eff1f5;
+  --palette-gray: #4c4f69;
+
   --palette-teal: #14b8a6;
 
-  /* Default theme (dark) */
-  --theme-color-base: var(--palette-navy);
-  --theme-color-header: var(--palette-abyss);
+  --theme-color-base: var(--palette-dark);
   --theme-color-text: var(--palette-offwhite);
   --theme-color-link: var(--palette-teal);
 }
 
 /* Light/Dark theme overrides */
 [data-theme='dark'] {
-  --theme-color-base: var(--palette-navy);
-  --theme-color-header: var(--palette-abyss);
+  --theme-color-base: var(--palette-dark);
   --theme-color-text: var(--palette-offwhite);
   --theme-color-link: var(--palette-teal);
 }
 
 [data-theme='light'] {
-  --theme-color-base: var(--palette-offwhite);
-  --theme-color-header: var(--palette-gray);
-  --theme-color-text: var(--palette-navy);
+  --theme-color-base: var(--palette-light);
+  --theme-color-text: var(--palette-gray);
   --theme-color-link: var(--palette-teal);
 }
 
@@ -61,9 +58,7 @@ body {
 
 a {
   color: var(--theme-color-link);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 
 a:hover {
@@ -95,6 +90,10 @@ main {
   border-radius: 0.5rem;
 }
 
+.page-title {
+  animation: growShrink 0.8s ease-in-out;
+}
+
 /* ================================
    HEADER
 ================================== */
@@ -106,7 +105,7 @@ main {
   height: 3.5rem;
   z-index: 1000;
   box-sizing: border-box;
-  background: color-mix(in srgb, var(--theme-color-header) 80%, transparent);
+  background: color-mix(in srgb, var(--theme-color-base) 80%, transparent);
 }
 
 .header-container {
@@ -160,7 +159,7 @@ main {
     display: none;
     flex-direction: column;
     gap: 1rem;
-    background: var(--theme-color-header);
+    background: var(--theme-color-base);
     position: absolute;
     top: 3.5rem;
     left: 0;
@@ -251,7 +250,7 @@ main {
   flex-shrink: 0;
   border-radius: 50%;
   transition: transform 0.2s ease-in-out;
-  background: var(--theme-color-header);
+  background: var(--theme-color-base);
 }
 
 .profile-image-container:hover {
@@ -263,6 +262,11 @@ main {
   height: 100%;
   object-fit: cover;
   transform: scale(1.4) translate(-20px, 10px);
+}
+
+.fade-up-container {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
 }
 
 /* ================================
@@ -296,10 +300,6 @@ main {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
-}
-
-.meta-info-link-reset a:hover {
-  text-decoration: underline;
 }
 
 /* Blog card */
@@ -400,6 +400,18 @@ main {
    ANIMATIONS
 ================================== */
 
+@keyframes growShrink {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -409,9 +421,4 @@ main {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.fade-up {
-  opacity: 0;
-  animation: fadeUp 0.8s ease-out forwards;
 }
