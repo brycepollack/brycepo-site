@@ -2,6 +2,7 @@
 title: 'My First Home Server'
 pubDate: '2025-09-10'
 draft: false
+slug: 'homelab'
 ---
 
 As the variety of software I use in my day-to-day life increases, being able to know how and where these tools work has become more and more interesting to me. What better way to understand the software you use than to host the software yourself?

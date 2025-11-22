@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BlogCard from '../components/BlogCard.astro';
+import Layout from '@/layouts/Layout.astro';
+import BlogCard from '@/components/BlogCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 let posts: CollectionEntry<'blog'>[] = await getCollection('blog');
@@ -19,12 +19,10 @@ posts = posts
   <div class="blog-list">
     {
       posts.map(post => {
-        const cleanSlug = post.slug.replace(/^\d+[\.\-_]?/, '');
-
         return (
           <BlogCard
             title={post.data.title}
-            slug={cleanSlug}
+            slug={post.slug}
             date={post.data.pubDate}
             description={post.body.substring(0, 150) + '...'}
           />

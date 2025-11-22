@@ -2,6 +2,7 @@
 title: 'Home'
 pubDate: '2025-06-07'
 draft: false
+slug: 'home'
 ---
 
 Hi, I'm Bryce! I work as a Software Engineer at [Capital Group](https://www.capitalgroup.com/) on the Investment Research and Management team where I build portfolio research and analysis tools for our investors.
