@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
-    "astro": "^5.5.5",
+    "astro": "^5.15.9",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-spotify-embed": "^2.0.4",
