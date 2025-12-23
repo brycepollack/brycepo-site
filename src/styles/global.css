@@ -327,6 +327,34 @@ main {
   margin-bottom: 10px;
 }
 
+/* Terminal-style code block */
+pre {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 1.5rem 1rem 1rem;
+  position: relative;
+  overflow-x: auto;
+}
+
+pre::before {
+  content: '';
+  position: absolute;
+  top: 0.6rem;
+  left: 0.75rem;
+  width: 12px;
+  height: 12px;
+  background: #ff5f56;
+  border-radius: 50%;
+  box-shadow:
+    20px 0 #ffbd2e,
+    40px 0 #27c93f;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-size: 0.9rem;
+}
+
 /* ================================
    SPOTIFY WIDGET
 ================================== */
