@@ -1,13 +1,11 @@
 ---
-import IconSun from './icons/IconSun.astro';
-import IconMoon from './icons/IconMoon.astro';
-import IconMenu from './icons/IconMenu.astro';
+
 ---
 
 <header class="header">
   <div class="header-container">
     <div class="header-container-left">
-      <a href="/" class="name-link"> brycepo.com </a>
+      <a href="/" class="name-link">brycepo.com</a>
     </div>
 
     <div class="header-container-right">
@@ -16,30 +14,59 @@ import IconMenu from './icons/IconMenu.astro';
         <a href="/blog" class="nav-link">Blog</a>
         <a href="/projects" class="nav-link">Projects</a>
 
-        <button id="theme-toggle" class="theme-toggle">
-          <IconSun />
-
-          <IconMoon />
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fa-regular fa-sun sun icon"></i>
+          <i class="fa-regular fa-moon moon icon"></i>
         </button>
       </nav>
+
       <button class="nav-menu" id="nav-menu">
-        <IconMenu />
+        <i class="fa-solid fa-bars icon"></i>
       </button>
     </div>
   </div>
 </header>
 
-<script>
-  import { initThemeToggle } from '../scripts/theme-toggle';
-  import { highlightCurrentNav } from '../scripts/nav-highlight';
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
 
-  initThemeToggle();
-  highlightCurrentNav();
+    // === THEME TOGGLE ===
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme =
+        stored === 'dark' || stored === 'light' ? stored : prefersDark ? 'dark' : 'light';
 
-  const menu = document.getElementById('nav-menu');
-  const nav = document.querySelector('.nav');
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
 
-  menu?.addEventListener('click', () => {
-    nav?.classList.toggle('open');
-  });
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    }
+
+    // === NAV HIGHLIGHT ===
+    const links = document.querySelectorAll('.nav-link');
+    const path = window.location.pathname;
+    links.forEach(link => {
+      if (link.getAttribute('href') === path) {
+        link.classList.add('active');
+      }
+    });
+
+    // === MOBILE NAV TOGGLE ===
+    const menu = document.getElementById('nav-menu');
+    const nav = document.querySelector('.nav');
+    if (menu && nav) {
+      menu.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        menu.setAttribute('aria-expanded', isOpen);
+      });
+    }
+  })();
 </script>

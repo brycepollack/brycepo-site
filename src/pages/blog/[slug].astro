@@ -1,6 +1,4 @@
 ---
-import IconCalendar from '@/components/icons/IconCalendar.astro';
-import IconEdit from '@/components/icons/IconEdit.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
@@ -21,17 +19,17 @@ const wordCount = entry.body?.split(/\s+/).length ?? 0;
 ---
 
 <Layout title={`${entry.data.title} | Bryce Pollack`}>
-  <article class="prose">
+  <article class="markdown-content">
     <h1>{entry.data.title}</h1>
 
     <div class="meta-info">
-      <span class="flex items-center gap-2">
-        <IconCalendar />
+      <span>
+        <i class="fa-solid fa-calendar icon"></i>
         {entry.data.pubDate}
       </span>
 
-      <span class="flex items-center gap-2">
-        <IconEdit />
+      <span>
+        <i class="fa-solid fa-pen icon"></i>
         {wordCount} words
       </span>
     </div>
