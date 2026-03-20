@@ -1,39 +1,60 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import readingTime from 'reading-time';
+
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
 
 export async function getStaticPaths() {
-  let posts: CollectionEntry<'blog'>[] = await getCollection('blog');
+  const posts: CollectionEntry<'blog'>[] = await getCollection('blog');
   return posts.map(post => {
+    const stats = readingTime(post.body);
     return {
       params: { slug: post.slug },
-      props: { entry: post },
+      props: {
+        entry: {
+          ...post,
+          readingTime: {
+            words: stats.words,
+            minutes: Math.ceil(stats.minutes),
+          },
+        },
+      },
     };
   });
 }
-
-const { entry } = Astro.props;
-const { Content } = await entry.render();
-
-const wordCount = entry.body?.split(/\s+/).length ?? 0;
 ---
 
 <Layout title={`${entry.data.title} | Bryce Pollack`}>
-  <article class="markdown-content">
-    <h1>{entry.data.title}</h1>
+  <div class="post-wrapper">
+    <article class="markdown-content">
+      <h1>{entry.data.title}</h1>
 
-    <div class="meta-info">
-      <span>
-        <i class="fa-solid fa-calendar icon"></i>
-        {entry.data.pubDate}
-      </span>
+      <div class="meta-info">
+        <span>
+          <Icon name="mdi:calendar-blank" class="icon" />
+          {entry.data.pubDate}
+        </span>
 
-      <span>
-        <i class="fa-solid fa-pen icon"></i>
-        {wordCount} words
-      </span>
-    </div>
+        <span>
+          <Icon name="mdi:pencil" class="icon" />
+          {entry.readingTime.words} words
+        </span>
 
-    <Content />
-  </article>
+        <span>
+          <Icon name="mdi:clock" class="icon" />
+          {entry.readingTime.minutes} min read
+        </span>
+      </div>
+
+      <Content />
+    </article>
+
+    <aside class="toc-container">
+      {headings.length >= 1 && <TableOfContents headings={headings} />}
+    </aside>
+  </div>
 </Layout>

@@ -1,0 +1,17 @@
+---
+const { headings } = Astro.props;
+---
+
+<nav class="toc">
+  <h2>Table of contents</h2>
+
+  <ul>
+    {
+      headings.map(h => (
+        <li class={`depth-${h.depth}`}>
+          <a href={`#${h.slug}`}>{h.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

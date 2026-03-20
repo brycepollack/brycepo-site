@@ -1,7 +1,8 @@
 ---
-import Header from '@/components/Header.astro';
-import Analytics from '@/components/Analytics.astro';
-import '@/styles/global.css';
+import Header from '@/layouts/Header.astro';
+import Footer from '@/layouts/Footer.astro';
+import Analytics from '@/layouts/Analytics.astro';
+import '@/styles/index.css';
 
 const { title = 'Bryce Pollack' } = Astro.props;
 ---
@@ -29,21 +30,14 @@ const { title = 'Bryce Pollack' } = Astro.props;
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <title set:html={title} />
     <Analytics />
   </head>
   <body>
-    <div class="layout">
-      <Header />
-      <main class="content">
-        <slot />
-      </main>
-    </div>
+    <Header />
+    <main class="content">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

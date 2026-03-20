@@ -1,5 +1,5 @@
 ---
-
+import { Icon } from 'astro-icon/components';
 ---
 
 <header class="header">
@@ -15,13 +15,13 @@
         <a href="/projects" class="nav-link">Projects</a>
 
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <i class="fa-regular fa-sun sun icon"></i>
-          <i class="fa-regular fa-moon moon icon"></i>
+          <Icon name="ri:sun-line" class="icon sun" />
+          <Icon name="ri:moon-line" class="icon moon" />
         </button>
       </nav>
 
       <button class="nav-menu" id="nav-menu">
-        <i class="fa-solid fa-bars icon"></i>
+        <Icon name="mdi:menu" class="icon" />
       </button>
     </div>
   </div>
@@ -34,14 +34,6 @@
     // === THEME TOGGLE ===
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme =
-        stored === 'dark' || stored === 'light' ? stored : prefersDark ? 'dark' : 'light';
-
-      root.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-
       themeToggle.addEventListener('click', () => {
         const current = root.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
@@ -65,7 +57,7 @@
     if (menu && nav) {
       menu.addEventListener('click', () => {
         const isOpen = nav.classList.toggle('open');
-        menu.setAttribute('aria-expanded', isOpen);
+        menu.setAttribute('aria-expanded', String(isOpen));
       });
     }
   })();

@@ -4,8 +4,7 @@ import BlogCard from '@/components/BlogCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 let posts: CollectionEntry<'blog'>[] = await getCollection('blog');
-
-posts = posts
+let displayPosts = posts
   .filter(post => !post.data.draft)
   .sort((a, b) => {
     const dateA = new Date(a.data.pubDate).getTime();
@@ -18,7 +17,7 @@ posts = posts
   <h1 class="page-title">Blog</h1>
   <div class="blog-list">
     {
-      posts.map(post => {
+      displayPosts.map(post => {
         return (
           <BlogCard
             title={post.data.title}

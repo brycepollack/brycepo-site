@@ -1,0 +1,85 @@
+/* BLOG CARD */
+
+.blog-card {
+  display: block;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  text-decoration: none;
+  padding: 1.5rem;
+  border-radius: 0.625rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card-title {
+  font-size: var(--font-size-xl);
+  margin: 0 0 0.625rem;
+}
+
+.blog-card-date {
+  font-size: var(--font-size-toc-card);
+  margin-bottom: 0.625rem;
+}
+
+/* TABLE OF CONTENTS */
+
+.toc {
+  position: sticky;
+  top: 5rem;
+  font-size: var(--font-size-toc-base);
+  line-height: 1.35;
+}
+
+.toc h2 {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  margin-bottom: 0.6rem;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.65;
+  transition:
+    opacity 0.15s ease,
+    color 0.15s ease;
+}
+
+.toc a:hover {
+  opacity: 1;
+}
+
+.toc a.active {
+  opacity: 1;
+  font-weight: var(--font-weight-semibold);
+}
+
+.toc .depth-1 a {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-toc-base);
+  margin-top: 0.7rem;
+}
+
+.toc .depth-2 a {
+  padding-left: 0.6rem;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-toc-sub);
+}
+
+.toc .depth-3 a {
+  padding-left: 1.2rem;
+  font-size: var(--font-size-toc-deep);
+  opacity: 0.75;
+}

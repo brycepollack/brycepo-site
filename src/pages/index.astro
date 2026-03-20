@@ -3,49 +3,41 @@ import Layout from '@/layouts/Layout.astro';
 import profileImage from '@/assets/profile.jpg';
 import { getEntry } from 'astro:content';
 
-const homeContent = await getEntry('pages', 'home');
-const { Content } = await homeContent.render();
+const entry = await getEntry('pages', 'home');
+const { Content } = await entry.render();
 ---
 
 <Layout title="Bryce Pollack">
   <div class="fade-up-container">
     <div class="profile-container">
       <div class="profile-image-container">
-        <img src={profileImage.src} alt="Profile photo of Bryce Pollack" class="profile-image" />
+        <img
+          src={profileImage.src}
+          alt="Profile photo"
+          class="profile-image"
+          fetchpriority="high"
+        />
       </div>
     </div>
 
     <article class="markdown-content">
       <Content />
     </article>
-
-    <div class="social-links">
-      <a
-        href="https://linkedin.com/in/brycepollack"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-      >
-        <i class="fa-brands fa-linkedin icon"></i> @brycepollack
-      </a>
-
-      <a
-        href="https://github.com/brycepollack"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-      >
-        <i class="fa-brands fa-github icon"></i> @brycepollack
-      </a>
-
-      <a
-        href="https://discordapp.com/users/147954160526950411"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Discord"
-      >
-        <i class="fa-brands fa-discord icon"></i> @brycepo
-      </a>
-    </div>
   </div>
 </Layout>
+
+<script>
+  const img = document.querySelector<HTMLImageElement>('.profile-image');
+  const container = document.querySelector('.fade-up-container');
+
+  function ready() {
+    container?.classList.add('ready');
+  }
+
+  if (img?.complete) {
+    ready();
+  } else {
+    img?.addEventListener('load', ready);
+    img?.addEventListener('error', ready);
+  }
+</script>
