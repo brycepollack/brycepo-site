@@ -1,6 +1,6 @@
 ---
 title: 'What is a Website?'
-pubDate: '2025-06-07'
+pubDate: '2026-04-04'
 draft: false
 slug: 'what-is-a-website'
 ---
