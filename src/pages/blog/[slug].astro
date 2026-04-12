@@ -5,7 +5,14 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import readingTime from 'reading-time';
 
+interface Props {
+  entry: CollectionEntry<'blog'> & {
+    readingTime: { words: number; minutes: number };
+  };
+}
+
 const { entry } = Astro.props;
+
 const { Content, headings } = await entry.render();
 
 export async function getStaticPaths() {
