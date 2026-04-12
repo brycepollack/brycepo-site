@@ -2,6 +2,7 @@ html,
 body {
   max-width: 100%;
   margin: 0;
+  scroll-padding-top: 3.5rem;
 }
 
 body {
