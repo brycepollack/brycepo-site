@@ -5,9 +5,7 @@ draft: false
 slug: 'what-is-a-website'
 ---
 
-Modern web development is hidden under so many layers of abstraction that I often find it difficult to reason about how the code I write turns into a web page in my browser.
-
-When you open up your browser and type `google.com` in the address bar, it results in a fully-functioning web page with interactive content. How does this happen? I'll be hand-waving how the actual infrastructure of the internet works for this article: if you're interested in that, [read this article by Cloudflare](https://www.cloudflare.com/learning/network-layer/how-does-the-internet-work/).
+Modern web development is hidden under so many layers of abstraction that I often find it difficult to reason about how the code I write eventually turns into a web page in my browser. When you open up your browser and type `google.com` in the address bar, it results in a fully-functioning web page with interactive content. How does this happen? I'll be hand-waving how the actual infrastructure of the internet works for this article: if you're interested in that, [read this article by Cloudflare](https://www.cloudflare.com/learning/network-layer/how-does-the-internet-work/).
 
 # What is a website?
 
@@ -21,7 +19,7 @@ At a high level, loading a website looks like this:
 
 URL resolution is handled via DNS, which is essentially just a mapping of domain name to IP address. The browser/OS handles this for the user, so from a developer's perspective all you need to do is configure a DNS record with a domain registrar/DNS provider to tell the global DNS system which IP address a domain name should resolve to.
 
-Before any data can be sent, the client and server must establish a TCP connection. This is handled by the OS, and is essentially a way to say two computers are securely connected.
+Before any data can be sent, the client and server must establish a TCP connection. This is also handled by the browser/OS, and is essentially a way to say two computers are connected.
 
 Requests and response messages are then sent via HTTP (Hyper Text Transfer Protocol), which is the primary method of data transfer on the web. An HTTP message has the following format:
 
