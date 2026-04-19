@@ -62,6 +62,6 @@ pre::before {
 }
 
 code {
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--font-size-sm);
 }

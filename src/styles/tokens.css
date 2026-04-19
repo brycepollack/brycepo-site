@@ -12,19 +12,78 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMonoVariable.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMonoVariable-Italic.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: italic;
+}
+
 :root {
-  /* Colors */
-  --color-gray-050: #eff1f5;
-  --color-gray-100: #e3e6e8;
-  --color-gray-500: #6b7280;
-  --color-gray-800: #4c4f69;
-  --color-gray-950: #0d0f12;
-  --color-teal-500: #14b8a6;
+  /* Color Primitives */
+  --palette-dark-rosewater: #f5e0dc;
+  --palette-dark-flamingo: #f2cdcd;
+  --palette-dark-pink: #f5c2e7;
+  --palette-dark-mauve: #cba6f7;
+  --palette-dark-red: #f38ba8;
+  --palette-dark-maroon: #eba0ac;
+  --palette-dark-peach: #fab387;
+  --palette-dark-yellow: #f9e2af;
+  --palette-dark-green: #a6e3a1;
+  --palette-dark-teal: #94e2d5;
+  --palette-dark-sky: #89dceb;
+  --palette-dark-sapphire: #74c7ec;
+  --palette-dark-blue: #89b4fa;
+  --palette-dark-lavender: #b4befe;
+  --palette-dark-text: #e3e6e8;
+  --palette-dark-subtext: #6b7280;
+  --palette-dark-overlay: #4a4d5e;
+  --palette-dark-surface: #1e2130;
+  --palette-dark-base: #0d0f12;
+  --palette-dark-mantle: #090b0e;
+  --palette-dark-crust: #05070a;
+
+  --palette-light-rosewater: #dc8a78;
+  --palette-light-flamingo: #dd7878;
+  --palette-light-pink: #ea76cb;
+  --palette-light-mauve: #8839ef;
+  --palette-light-red: #d20f39;
+  --palette-light-maroon: #e64553;
+  --palette-light-peach: #fe640b;
+  --palette-light-yellow: #df8e1d;
+  --palette-light-green: #40a02b;
+  --palette-light-teal: #179299;
+  --palette-light-sky: #04a5e5;
+  --palette-light-sapphire: #209fb5;
+  --palette-light-blue: #1e66f5;
+  --palette-light-lavender: #7287fd;
+  --palette-light-text: #4c4f69;
+  --palette-light-subtext: #6c6f85;
+  --palette-light-overlay: #9ca0b0;
+  --palette-light-surface: #ccd0da;
+  --palette-light-base: #eff1f5;
+  --palette-light-mantle: #e6e9ef;
+  --palette-light-crust: #dce0e8;
+
+  /* Color Semantics (Default Dark) */
+  --color-bg: var(--palette-dark-base);
+  --color-bg-translucent: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  --color-text: var(--palette-dark-text);
+  --color-text-link: var(--palette-dark-teal);
+  --color-text-muted: var(--palette-dark-subtext);
 
   /* Typography */
   --font-sans:
     'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -38,11 +97,4 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-
-  /* Semantics - Theme Defaults */
-  --color-bg: var(--color-gray-950);
-  --color-bg-overlay: color-mix(in srgb, var(--color-bg) 80%, transparent);
-  --color-text: var(--color-gray-100);
-  --color-text-link: var(--color-teal-500);
-  --color-text-muted: var(--color-gray-500);
 }
