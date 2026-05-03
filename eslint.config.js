@@ -6,7 +6,7 @@ export default defineConfig([
   globalIgnores(['dist', 'node_modules', '.astro']),
   ...astro.configs.recommended,
   {
-    files: ['**/*.{ts,tsx,js,astro}'],
+    files: ['**/*.{ts,tsx,js}'],
     extends: [tseslint.configs.recommended],
     languageOptions: {
       ecmaVersion: 2020,
