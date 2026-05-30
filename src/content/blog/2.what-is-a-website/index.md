@@ -12,7 +12,7 @@ Modern web development is hidden under so many layers of abstraction that I ofte
 At a high level, loading a website looks like this:
 
 1. The URL is resolved to an IP address.
-2. A TCP connection is established between your computer (the client) and the one at that IP address (the server)
+2. A TCP connection is established between your computer (the client) and the one at that IP address (the server).
 3. A request is sent to the server.
 4. The server processes the request and sends a response.
 5. The browser processes the response and renders a webpage.
@@ -21,7 +21,7 @@ URL resolution is handled via DNS, which is essentially just a mapping of domain
 
 Before any data can be sent, the client and server must establish a TCP connection. This is also handled by the browser/OS, and is essentially a way to say two computers are connected.
 
-Requests and response messages are then sent via HTTP (Hyper Text Transfer Protocol), which is the primary method of data transfer on the web. An HTTP message has the following format:
+Request and response messages are then sent via HTTP (Hyper Text Transfer Protocol), which is the primary method of data transfer on the web. An HTTP message has the following format:
 
 - Start-line: Describes the HTTP version along with the request method for requests or the status code for responses.
 - Headers: Key–value metadata that describes the message.
@@ -43,7 +43,7 @@ The most common web server/reverse proxy/load balancer software is Nginx. Nginx 
 
 HTML (HyperText Markup Language) describes the content and structure of a web page. The browser first reads the HTML document and builds a data model from it, the DOM (Document Object Model), which acts as the foundational data structure everything else is built on.
 
-CSS (Cascading Style Sheets) defines how the content looks: colors, fonts, spacing, positioning, behavior for different screen sizes, etc. The browser parses CSS into another structure called the CSSOM (CSS Object Model), then uses this to apply CSS rule to every element in the DOM.
+CSS (Cascading Style Sheets) defines how the content looks: colors, fonts, spacing, positioning, behavior for different screen sizes, etc. The browser parses CSS into another structure called the CSSOM (CSS Object Model), then uses this to apply CSS rules to every element in the DOM.
 
 JS (JavaScript) makes the page interactive and dynamic. When the browser encounters an HTML `script` element like `<script src="app.js"></script>`, it knows to download and execute that JavaScript file before doing anything else. Why JavaScript and not something like C++ or Python? Because the early web needed a lightweight scripting language to quickly execute code in and JavaScript was the scripting language for Netscape, the most popular browser at the time.
 
