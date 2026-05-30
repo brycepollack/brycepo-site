@@ -1,21 +1,4 @@
-.content {
-  flex-grow: 1;
-  width: 100%;
-  max-width: 45rem;
-  margin: 0.5rem auto 1rem;
-  padding: 0 1rem 1rem;
-  box-sizing: border-box;
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 3.5rem;
-  z-index: 1000;
-  box-sizing: border-box;
-  background: var(--color-bg-translucent);
-}
+/* HEADER */
 
 .header-container {
   height: 100%;
@@ -115,14 +98,6 @@
 }
 
 /* FOOTER */
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1rem;
-}
 
 .social-links {
   display: flex;
