@@ -15,12 +15,11 @@
 }
 
 .blog-card-title {
-  font-size: var(--font-size-xl);
   margin: 0 0 0.625rem;
 }
 
 .blog-card-date {
-  font-size: var(--font-size-toc-card);
+  font-size: var(--font-size-sm);
   margin-bottom: 0.625rem;
 }
 
@@ -29,7 +28,7 @@
 .toc {
   position: sticky;
   top: 5rem;
-  font-size: var(--font-size-toc-base);
+  font-size: var(--font-size-sm);
   line-height: 1.35;
 }
 
@@ -38,7 +37,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   opacity: 0.55;
-  margin-bottom: 0.6rem;
+  margin: 0 0 0.6rem;
 }
 
 .toc ul {
@@ -68,18 +67,15 @@
 
 .toc .depth-1 a {
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-toc-base);
   margin-top: 0.7rem;
 }
 
 .toc .depth-2 a {
   padding-left: 0.6rem;
   font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-toc-sub);
 }
 
 .toc .depth-3 a {
   padding-left: 1.2rem;
-  font-size: var(--font-size-toc-deep);
   opacity: 0.75;
 }

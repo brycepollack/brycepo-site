@@ -6,6 +6,14 @@ export default defineConfig([
   globalIgnores(['dist', 'node_modules', '.astro']),
   ...astro.configs.recommended,
   {
+    files: ['**/*.astro'],
+    languageOptions: {
+      parserOptions: {
+        parser: tseslint.parser,
+      },
+    },
+  },
+  {
     files: ['**/*.{ts,tsx,js}'],
     extends: [tseslint.configs.recommended],
     languageOptions: {
