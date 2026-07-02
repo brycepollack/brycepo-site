@@ -7,7 +7,7 @@ slug: 'what-is-a-website'
 
 Modern web development is hidden under so many layers of abstraction that I often find it difficult to reason about how the code I write turns into a web page in my browser. When you open up your browser and type `google.com` in the address bar, it results in a fully-functioning web page with interactive content. How does this happen? I'll be hand-waving how the actual infrastructure of the internet works for this article: if you're interested in that, [read this article by Cloudflare](https://www.cloudflare.com/learning/network-layer/how-does-the-internet-work/).
 
-# What is a website?
+# What do you mean by website?
 
 At a high level, loading a website looks like this:
 
@@ -45,7 +45,7 @@ HTML (HyperText Markup Language) describes the content and structure of a web pa
 
 CSS (Cascading Style Sheets) defines how the content looks: colors, fonts, spacing, positioning, behavior for different screen sizes, etc. The browser parses CSS into another structure called the CSSOM (CSS Object Model), then uses this to apply CSS rules to every element in the DOM.
 
-JS (JavaScript) makes the page interactive and dynamic. When the browser encounters an HTML `script` element like `<script src="app.js"></script>`, it knows to download and execute that JavaScript file before doing anything else. Why JavaScript and not something like C++ or Python? Because the early web needed a lightweight scripting language to quickly execute code in and JavaScript was the scripting language for Netscape, the most popular browser at the time.
+JS (JavaScript) makes the page interactive and dynamic. When the browser encounters an HTML `script` element like `<script src="app.js"></script>`, it knows to download and execute that JavaScript file before doing anything else.
 
 # How does a web server serve?
 
@@ -62,8 +62,8 @@ The most basic web server is just a static file server. Say you have a folder on
 
 The web server maps URL `/` to `/var/www/html/index.html`. When a client sends `GET /`, the server reads the file and responds with raw HTML. The browser then fetches any CSS/JS referenced in it. This is simple, fast, and has good SEO, but the same HTML goes to every user on every request and so can't really be used for creating more dynamic websites.
 
-Server-Side Rendering (SSR) is where the server generates HTML at request time. Instead of serving a pre-written file, the server runs application code to build the HTML dynamically (querying a database, checking auth, personalizing content) then sends the fully-formed HTML to the browser. The browser gets complete HTML immediately, which is good for performance and SEO. The trade-off is that every request requires server processing time, so it's slower and puts more load on your infrastructure. Traditional web frameworks like Rails or Django work this way, and modern ones like Next.js support SSR as well.
+Server-Side Rendering (SSR) is where the server generates HTML at request time. Instead of serving a pre-written file, the server runs application code to build the HTML dynamically (querying a database, checking auth, personalizing content) then sends the fully-formed HTML to the browser. The browser gets complete HTML immediately, which is good for performance and SEO. The trade-off is that every request requires server processing time, so it puts more load on your infrastructure. Traditional web frameworks like Rails or Django work this way, and modern ones like Next.js support SSR as well.
 
-Static Site Generation (SSG) is like SSR, but at build time rather than request time. Before deploying, a build step pre-renders every page into fully-formed HTML files, which can then be served statically. You get the dynamic data benefits of SSR during the build, but the simplicity and speed of static serving at runtime. The limitation of SSG is that content is only as fresh as your last build, so it's a poor fit for rendering frequently changing/user-specific data.
+Static Site Generation (SSG) is like SSR, but at build time rather than request time. Before deploying, a build step pre-renders every page into fully-formed HTML files, which can then be served statically. The limitation of SSG is that content is only as fresh as your last build, so it's a poor fit for rendering frequently changing/user-specific data.
 
-Client-Side Rendering (CSR) is where HTML is generated in the browser at runtime. The server sends a minimal HTML shell and a JavaScript bundle, and the browser then downloads and executes this JavaScript in order to construct the page. CSR is often used to build Single Page Applications (SPAs), where the browser loads one HTML document once and handles all subsequent navigation client-side by intercepting clicks and swapping in new content without a full page reload.
+Client-Side Rendering (CSR) is where HTML is generated in the browser at runtime. The server sends a minimal HTML shell and a JavaScript bundle, and the browser then downloads and executes this JavaScript in order to construct the page. CSR is often used to build Single Page Applications (SPAs), where the browser loads one HTML document once and handles all subsequent navigation client-side by intercepting clicks and swapping in new content without a full page reload. This eases the load on server infrastructure, but shifts the burden of compute to the user. Web frameworks like React and Vue are usually used to develop SPAs.
