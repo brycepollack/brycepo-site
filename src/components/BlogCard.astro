@@ -9,8 +9,11 @@ interface Props {
 const { title, slug, date, description } = Astro.props;
 ---
 
-<a href={`/blog/${slug}/`} class="blog-card">
-  <h2 class="blog-card-title">{title}</h2>
-  <p class="blog-card-date">Published on {date}</p>
+<a
+  href={`/blog/${slug}/`}
+  class="block rounded-xl border border-text p-6 text-text transition-transform duration-200 ease-in-out hover:-translate-y-1"
+>
+  <h2 class="mb-2">{title}</h2>
+  <p class="mb-2 text-sm">Published on {date}</p>
   <p>{description}</p>
 </a>

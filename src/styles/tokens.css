@@ -26,6 +26,7 @@
   font-style: italic;
 }
 
+/* Primitives */
 :root {
   --palette-dark-rosewater: #f5e0dc;
   --palette-dark-flamingo: #f2cdcd;
@@ -72,6 +73,7 @@
   --palette-light-crust: #dce0e8;
 }
 
+/* Semantics - Defaults */
 @theme {
   --color-bg: var(--palette-dark-base);
   --color-bg-translucent: color-mix(in srgb, var(--color-bg) 80%, transparent);
