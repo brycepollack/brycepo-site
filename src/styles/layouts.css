@@ -19,7 +19,7 @@
   text-decoration: none;
   color: inherit;
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-xl);
+  font-size: var(--text-xl);
 }
 
 .nav {
@@ -29,7 +29,7 @@
 }
 
 .nav-link {
-  color: var(--color-text-link);
+  color: var(--color-link);
 }
 
 .nav-link.active {
@@ -46,7 +46,7 @@
 }
 
 .nav-menu .icon {
-  font-size: var(--font-size-lg);
+  font-size: var(--text-lg);
 }
 
 @media (max-width: 768px) {
@@ -88,7 +88,7 @@
 }
 
 .theme-toggle .icon {
-  font-size: var(--font-size-lg);
+  font-size: var(--text-lg);
 }
 
 .sun,
@@ -116,13 +116,13 @@
 }
 
 .social-links .icon {
-  font-size: var(--font-size-xl);
+  font-size: var(--text-xl);
 }
 
 .copyright {
-  font-size: var(--font-size-xs);
+  font-size: var(--text-xs);
   line-height: 1rem;
-  color: var(--color-text-muted);
+  color: var(--color-muted);
   text-align: center;
   padding-left: 1rem;
   padding-right: 1rem;

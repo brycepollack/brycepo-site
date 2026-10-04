@@ -27,7 +27,6 @@
 }
 
 :root {
-  /* Color Primitives */
   --palette-dark-rosewater: #f5e0dc;
   --palette-dark-flamingo: #f2cdcd;
   --palette-dark-pink: #f5c2e7;
@@ -71,27 +70,17 @@
   --palette-light-base: #eff1f5;
   --palette-light-mantle: #e6e9ef;
   --palette-light-crust: #dce0e8;
+}
 
-  /* Color Semantics (Default Dark) */
+@theme {
   --color-bg: var(--palette-dark-base);
   --color-bg-translucent: color-mix(in srgb, var(--color-bg) 80%, transparent);
   --color-text: var(--palette-dark-text);
-  --color-text-link: var(--palette-dark-teal);
-  --color-text-muted: var(--palette-dark-subtext);
+  --color-link: var(--palette-dark-teal);
+  --color-muted: var(--palette-dark-subtext);
 
-  /* Typography */
   --font-sans:
     'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
 }
