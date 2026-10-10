@@ -36,22 +36,22 @@ export async function getStaticPaths() {
 ---
 
 <Layout title={`${entry.data.title} | Bryce Pollack`}>
-  <div class="post-wrapper">
-    <article class="markdown-content">
+  <div class="relative">
+    <article>
       <h1>{entry.data.title}</h1>
 
-      <div class="meta-info">
-        <span>
+      <div class="mb-4 flex items-center gap-4 text-sm text-muted">
+        <span class="flex items-center gap-2">
           <Icon name="mdi:calendar-blank" class="icon" />
           {entry.data.pubDate}
         </span>
 
-        <span>
+        <span class="flex items-center gap-2">
           <Icon name="mdi:pencil" class="icon" />
           {entry.readingTime.words} words
         </span>
 
-        <span>
+        <span class="flex items-center gap-2">
           <Icon name="mdi:clock" class="icon" />
           {entry.readingTime.minutes} min read
         </span>
@@ -60,7 +60,7 @@ export async function getStaticPaths() {
       <Content />
     </article>
 
-    <aside class="toc-container">
+    <aside class="absolute top-0 left-[calc(100%+2.5rem)] hidden h-full w-55 min-[1100px]:block">
       {headings.length >= 1 && <TableOfContents headings={headings} />}
     </aside>
   </div>

@@ -1,43 +1,32 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import profileImage from '@/assets/profile.jpg';
 import { getEntry } from 'astro:content';
 
 const entry = await getEntry('pages', 'home');
+if (!entry) throw new Error('Missing content entry: pages/home');
 const { Content } = await entry.render();
 ---
 
 <Layout title="Bryce Pollack">
-  <div class="fade-up-container">
-    <div class="profile-container">
-      <div class="profile-image-container">
-        <img
-          src={profileImage.src}
+  <div class="animate-fade-up">
+    <div class="flex justify-center pt-12 pb-6">
+      <div class="size-50 shrink-0 overflow-hidden rounded-full bg-bg transition-transform duration-200 ease-in-out hover:-translate-y-1">
+        <Image
+          src={profileImage}
           alt="Profile photo"
-          class="profile-image"
+          class="size-full scale-140 object-cover -translate-x-7 translate-y-3.5"
+          width={560}
+          height={560}
+          loading="eager"
           fetchpriority="high"
         />
       </div>
     </div>
 
-    <article class="markdown-content">
+    <article>
       <Content />
     </article>
   </div>
 </Layout>
-
-<script>
-  const img = document.querySelector<HTMLImageElement>('.profile-image');
-  const container = document.querySelector('.fade-up-container');
-
-  function ready() {
-    container?.classList.add('ready');
-  }
-
-  if (img?.complete) {
-    ready();
-  } else {
-    img?.addEventListener('load', ready);
-    img?.addEventListener('error', ready);
-  }
-</script>

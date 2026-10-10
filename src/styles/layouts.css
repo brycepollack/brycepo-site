@@ -1,20 +1,5 @@
 /* HEADER */
 
-.header-container {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-}
-
-.header-container-left,
-.header-container-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .name-link {
   text-decoration: none;
   color: inherit;

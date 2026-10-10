@@ -73,7 +73,7 @@
   --palette-light-crust: #dce0e8;
 }
 
-/* Semantics - Defaults */
+/* Semantics */
 @theme {
   --color-bg: var(--palette-dark-base);
   --color-bg-translucent: color-mix(in srgb, var(--color-bg) 80%, transparent);
@@ -85,4 +85,28 @@
     'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --animate-grow-shrink: growShrink 0.8s ease-in-out;
+  --animate-fade-up: fadeUp 0.8s ease-out forwards;
+
+  @keyframes growShrink {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

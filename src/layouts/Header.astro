@@ -4,12 +4,12 @@ const path = Astro.url.pathname;
 ---
 
 <header>
-  <div class="header-container">
-    <div class="header-container-left">
+  <div class="flex h-full items-center justify-between px-4">
+    <div class="flex items-center gap-4">
       <a href="/" class="name-link">brycepo.com</a>
     </div>
 
-    <div class="header-container-right">
+    <div class="flex items-center gap-4">
       <nav class="nav">
         <a href="/" class:list={['nav-link', { active: path === '/' }]}>Home</a>
         <a href="/blog/" class:list={['nav-link', { active: path.startsWith('/blog') }]}>Blog</a>
