@@ -3,14 +3,14 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <footer>
-  <div class="social-links">
+  <div class="flex flex-wrap items-center justify-center gap-7">
     <a
       href="https://github.com/brycepollack"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="GitHub"
     >
-      <Icon name="mdi:github" class="icon" />
+      <Icon name="mdi:github" class="text-xl" />
     </a>
 
     <a
@@ -19,7 +19,7 @@ import { Icon } from 'astro-icon/components';
       rel="noopener noreferrer"
       aria-label="LinkedIn"
     >
-      <Icon name="mdi:linkedin" class="icon" />
+      <Icon name="mdi:linkedin" class="text-xl" />
     </a>
 
     <a
@@ -28,7 +28,7 @@ import { Icon } from 'astro-icon/components';
       rel="noopener noreferrer"
       aria-label="Discord"
     >
-      <Icon name="ic:outline-discord" class="icon" />
+      <Icon name="ic:outline-discord" class="text-xl" />
     </a>
 
     <a
@@ -37,8 +37,8 @@ import { Icon } from 'astro-icon/components';
       rel="noopener noreferrer"
       aria-label="Email"
     >
-      <Icon name="mdi:email" class="icon" />
+      <Icon name="mdi:email" class="text-xl" />
     </a>
   </div>
-  <p class="copyright">© 2026 Bryce Pollack. All rights reserved.</p>
+  <p class="px-4 text-center text-xs text-muted">© 2026 Bryce Pollack. All rights reserved.</p>
 </footer>

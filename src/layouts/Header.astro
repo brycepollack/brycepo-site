@@ -6,23 +6,35 @@ const path = Astro.url.pathname;
 <header>
   <div class="flex h-full items-center justify-between px-4">
     <div class="flex items-center gap-4">
-      <a href="/" class="name-link">brycepo.com</a>
+      <a href="/" class="text-xl font-bold">brycepo.com</a>
     </div>
 
     <div class="flex items-center gap-4">
-      <nav class="nav">
-        <a href="/" class:list={['nav-link', { active: path === '/' }]}>Home</a>
-        <a href="/blog/" class:list={['nav-link', { active: path.startsWith('/blog') }]}>Blog</a>
-        <a href="/portfolio/" class:list={['nav-link', { active: path.startsWith('/portfolio') }]}>Portfolio</a>
+      <nav
+        id="nav"
+        class="absolute inset-x-0 top-14 hidden flex-col items-center gap-4 rounded-b-lg bg-bg-translucent p-4 data-open:flex md:static md:flex md:flex-row md:gap-8 md:rounded-none md:bg-transparent md:p-0"
+      >
+        <a href="/" class:list={[{ 'text-text': path === '/' }]}>Home</a>
+        <a href="/blog/" class:list={[{ 'text-text': path.startsWith('/blog') }]}>Blog</a>
+        <a href="/portfolio/" class:list={[{ 'text-text': path.startsWith('/portfolio') }]}>Portfolio</a>
 
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <Icon name="ri:sun-line" class="icon sun" />
-          <Icon name="ri:moon-line" class="icon moon" />
+        <button
+          id="theme-toggle"
+          class="relative inline-flex size-6 cursor-pointer items-center justify-center"
+          aria-label="Toggle theme"
+        >
+          <Icon name="ri:sun-line" class="absolute text-lg text-text dark:hidden" />
+          <Icon name="ri:moon-line" class="absolute text-lg text-text light:hidden" />
         </button>
       </nav>
 
-      <button class="nav-menu" id="nav-menu">
-        <Icon name="mdi:menu" class="icon" />
+      <button
+        id="nav-menu"
+        class="cursor-pointer text-text md:hidden"
+        aria-controls="nav"
+        aria-expanded="false"
+      >
+        <Icon name="mdi:menu" class="text-lg" />
       </button>
     </div>
   </div>
@@ -45,10 +57,10 @@ const path = Astro.url.pathname;
 
     // === MOBILE NAV TOGGLE ===
     const menu = document.getElementById('nav-menu');
-    const nav = document.querySelector('.nav');
+    const nav = document.getElementById('nav');
     if (menu && nav) {
       menu.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('open');
+        const isOpen = nav.toggleAttribute('data-open');
         menu.setAttribute('aria-expanded', String(isOpen));
       });
     }

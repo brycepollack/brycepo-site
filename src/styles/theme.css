@@ -13,11 +13,6 @@
   --color-link: var(--palette-light-teal);
 }
 
-[data-theme='dark'] .sun,
-[data-theme='light'] .moon {
-  display: none;
-}
-
 /* Media Query Theme */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
