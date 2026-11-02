@@ -10,6 +10,7 @@ const { title = 'Bryce Pollack' } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <script is:inline>
       (() => {
         const stored = localStorage.getItem('theme');
@@ -19,10 +20,9 @@ const { title = 'Bryce Pollack' } = Astro.props;
           stored === 'dark' || stored === 'light' ? stored : prefersDark ? 'dark' : 'light';
 
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
       })();
     </script>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128x128.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />

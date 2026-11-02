@@ -1,38 +1,37 @@
 /* Data Theme */
 [data-theme='dark'] {
+  color-scheme: dark;
   --color-bg: var(--palette-dark-base);
   --color-text: var(--palette-dark-text);
-  --color-text-muted: var(--palette-dark-subtext);
-  --color-text-link: var(--palette-dark-teal);
+  --color-muted: var(--palette-dark-subtext);
+  --color-link: var(--palette-dark-teal);
 }
 
 [data-theme='light'] {
+  color-scheme: light;
   --color-bg: var(--palette-light-base);
   --color-text: var(--palette-light-text);
-  --color-text-muted: var(--palette-light-subtext);
-  --color-text-link: var(--palette-light-teal);
-}
-
-[data-theme='dark'] .sun,
-[data-theme='light'] .moon {
-  display: none;
+  --color-muted: var(--palette-light-subtext);
+  --color-link: var(--palette-light-teal);
 }
 
 /* Media Query Theme */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
+    color-scheme: dark;
     --color-bg: var(--palette-dark-base);
     --color-text: var(--palette-dark-text);
-    --color-text-muted: var(--palette-dark-subtext);
-    --color-text-link: var(--palette-dark-teal);
+    --color-muted: var(--palette-dark-subtext);
+    --color-link: var(--palette-dark-teal);
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
+    color-scheme: light;
     --color-bg: var(--palette-light-base);
     --color-text: var(--palette-light-text);
-    --color-text-muted: var(--palette-light-subtext);
-    --color-text-link: var(--palette-light-teal);
+    --color-muted: var(--palette-light-subtext);
+    --color-link: var(--palette-light-teal);
   }
 }

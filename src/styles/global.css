@@ -11,7 +11,7 @@ body {
   color: var(--color-text);
 
   font-family: var(--font-sans);
-  font-size: var(--font-size-base);
+  font-size: var(--text-base);
   font-weight: var(--font-weight-normal);
   line-height: 1.75;
 
@@ -21,7 +21,7 @@ body {
 }
 
 a {
-  color: var(--color-text-link);
+  color: var(--color-link);
   text-decoration: none;
 }
 
@@ -67,45 +67,19 @@ h6 {
 }
 
 h1 {
-  font-size: var(--font-size-2xl);
+  font-size: var(--text-2xl);
 }
 
 h2 {
-  font-size: var(--font-size-xl);
+  font-size: var(--text-xl);
 }
 
 h3 {
-  font-size: var(--font-size-lg);
+  font-size: var(--text-lg);
 }
 
 h4 {
-  font-size: var(--font-size-base);
-}
-
-p {
-  margin-bottom: 0;
-}
-
-blockquote {
-  margin: 1.5rem 0;
-  padding-left: 1rem;
-  border-left: 3px solid var(--color-text-muted);
-  color: var(--color-text-muted);
-}
-
-ul,
-ol {
-  padding-left: 1.5rem;
-}
-
-li {
-  margin-bottom: 0.25rem;
-}
-
-hr {
-  border: none;
-  height: 2px;
-  background-color: var(--color-text);
+  font-size: var(--text-base);
 }
 
 pre {
@@ -132,5 +106,54 @@ pre::before {
 
 code {
   font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--text-sm);
+}
+
+.prose {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.5em;
+  }
+
+  p,
+  ul,
+  ol,
+  blockquote,
+  pre {
+    margin-bottom: 1em;
+  }
+
+  blockquote {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-muted);
+    color: var(--color-muted);
+  }
+
+  ul,
+  ol {
+    padding-left: 1.5rem;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: var(--color-text);
 }
